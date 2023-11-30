@@ -11,6 +11,9 @@ on:
 jobs:
   Version-Check:
       runs-on: ubuntu-latest
+      env:
+        SETUPCFG_VERSION: ''
+
       steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -27,6 +30,9 @@ jobs:
           echo "setupcfg_version=${setupcfg_version}"
           echo "SETUPCFG_VERSION=$setupcfg_version" >> $GITHUB_ENV
           echo "SETUPCFG_VERSION: $SETUPCFG_VERSION"
+
+      - name: Save environment variable for next steps
+        run: echo "SETUPCFG_VERSION=${{ env.SETUPCFG_VERSION }}" >> $GITHUB_ENV
 
       - name: Check version is increased
         run: |
