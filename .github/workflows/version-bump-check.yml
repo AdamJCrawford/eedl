@@ -23,8 +23,9 @@ jobs:
 
       - name: Check version is increased
         run: |
-          
+          env
           setupcfg_version=$(grep -oP 'version\s*=\s*\K[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' setup.cfg)
+          env
           echo "SETUPCFG_VERSION=${setupcfg_version}" >> $GITHUB_ENV
           env
           python -m pip install requests
