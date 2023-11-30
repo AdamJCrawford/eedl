@@ -17,11 +17,9 @@ jobs:
 
       - name: Set Up Python Ubuntu
         uses: actions/setup-python@v4
-        with:
-          python-version: 3.11
         if: matrix.os ==  'ubuntu-latest'
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.11
 
       - name: Check version is increased
         run: |
@@ -29,4 +27,4 @@ jobs:
           echo "SETUPCFG_VERSION=${setupcfg_version}" >> $GITHUB_ENV
 
           python -m pip install requests
-          python -c "import requests;import os;latest = requests.get("https://pypi.org/pypi/eedl/json").json()["info"]["version"];import eedl;version_number = eedl.__version__;setupcfg_version = os.environ.get("SETUPCFG_VERSION");assert (version_number == setupcfg_version and version_number > latest)"
+          python -c "import requests;import os;latest = requests.get("https://pypi.org/pypi/eedl/json").json()["info"]["version"];import eedl;version_number = eedl.__version__;setupcfg_version = os.environ.get("SETUPCFG_VERSION");print(latest, setupcfg_version);assert (version_number == setupcfg_version and version_number > latest)"
