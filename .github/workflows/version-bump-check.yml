@@ -17,6 +17,8 @@ jobs:
 
       - name: Set Up Python Ubuntu
         uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
         if: matrix.os ==  'ubuntu-latest'
         with:
           python-version: ${{ matrix.python-version }}
