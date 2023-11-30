@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: 3.11
 
-      - nane: Get the version number from setup.cfg
+      - name: Get the version number from setup.cfg
         run: |
           setupcfg_version=$(grep -oP 'version\s*=\s*\K[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' setup.cfg)
           echo "SETUPCFG_VERSION=${setupcfg_version}"
