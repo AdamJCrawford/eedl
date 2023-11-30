@@ -27,12 +27,7 @@ jobs:
       - name: Get the version number from setup.cfg
         run: |
           setupcfg_version=$(grep -oP 'version\s*=\s*\K[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' setup.cfg)
-          echo "setupcfg_version=${setupcfg_version}"
           echo "SETUPCFG_VERSION=$setupcfg_version" >> $GITHUB_ENV
-          echo "SETUPCFG_VERSION: $SETUPCFG_VERSION"
-
-      - name: Save environment variable for next steps
-        run: echo "SETUPCFG_VERSION=${{ env.SETUPCFG_VERSION }}" >> $GITHUB_ENV
 
       - name: Check version is increased
         run: |
