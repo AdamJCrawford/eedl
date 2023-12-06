@@ -1,8 +1,8 @@
 import sys
+import os
 
 sys.path.append(os.getcwd())
 import eedl
-import os
 import re
 import requests
 
