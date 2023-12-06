@@ -21,13 +21,16 @@ jobs:
         with:
           python-version: 3.11
 
-      - name: Get the version number from setup.cfg
+      - name: Get the version number from setup.cfg and __init__.py
         run: |
           setupcfg_version=$(grep -oP 'version\s*=\s*\K[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' setup.cfg)
           echo "SETUPCFG_VERSION=$setupcfg_version" >> $GITHUB_ENV
 
+          version=$(python3 -c "from eedl import __version__; print(__version__)")
+          echo "VERSION=$version" >> $GITHUB_ENV
+
+
       - name: Check version is increased
         run: |
           python3 -m pip install requests
-          python3 -c "import eedl"
           python3 ci/version_checker.py
