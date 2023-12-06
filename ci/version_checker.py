@@ -1,4 +1,4 @@
-import eedl
+from . import eedl
 
 # import os
 # import re
