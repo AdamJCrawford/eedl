@@ -1,3 +1,7 @@
+import os
+
+print(os.getcwd())
+
 import eedl
 import os
 import re
