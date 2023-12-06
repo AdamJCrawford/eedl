@@ -13,7 +13,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set Up Python Ubuntu
         uses: actions/setup-python@v4
@@ -29,4 +29,4 @@ jobs:
       - name: Check version is increased
         run: |
           python3 -m pip install requests
-          python3 -m ci/version_checker.py
+          python3 ci/version_checker.py
