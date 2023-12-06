@@ -1,12 +1,9 @@
+import eedl
 import os
 import re
 import requests
 
-
 # We need to make sure that the version numbers in setup.cfg and __init__.py are the same and that both of them are greater than the most recent version that was pushed to PyPI.
-
-print(os.listdir(os.getcwd()))
-import eedl
 
 # Get the latest version number from PyPI
 latest = requests.get("https://pypi.org/pypi/eedl/json").json()["info"]["version"]
