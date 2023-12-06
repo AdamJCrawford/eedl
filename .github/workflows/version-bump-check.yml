@@ -29,4 +29,5 @@ jobs:
       - name: Check version is increased
         run: |
           python3 -m pip install requests
+          python3 -c "import eedl"
           python3 ci/version_checker.py
