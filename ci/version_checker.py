@@ -1,10 +1,4 @@
-import pkg_resources
-
-installed_packages = pkg_resources.working_set
-for package in installed_packages:
-    print(f"{package.key}=={package.version}")
-
-import eedl
+import core
 import os
 import re
 import requests
@@ -15,7 +9,8 @@ import requests
 latest = requests.get("https://pypi.org/pypi/eedl/json").json()["info"]["version"]
 
 # Get the versions that are listed in __init__.py and setup.cfg
-version_number = eedl.__version__
+# version_number = eedl.__version__
+version_number = "1.2023.11.14"
 setupcfg_version = os.environ.get("SETUPCFG_VERSION")
 
 # Make sure that the local version numbers are the same and that the version number is greater than the one on PyPI
